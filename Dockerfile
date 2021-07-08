@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.14
 
 RUN set -x \
 	&& apk add --update sniproxy \
@@ -6,6 +6,6 @@ RUN set -x \
 
 WORKDIR /etc/sniproxy
 
-EXPOSE 443
+EXPOSE 80 443
 
 CMD ["/usr/sbin/sniproxy","-c","/etc/sniproxy/sniproxy.conf","-f"]
